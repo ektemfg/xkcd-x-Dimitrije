@@ -7,78 +7,71 @@
 
 import SwiftUI
 
-struct FavouriteComicView: View {
-    @EnvironmentObject var vm: ViewModel
-    let comic: Comic
-    @State var isFavourite = false {
-        didSet {
-            vm.favCurrent()
-        }
-    }
-    
-    init(comic: Comic) {
-        self.comic = comic
-        self._isFavourite = State(initialValue: ViewModel.shared.currentComic?.liked ?? false)
-    }
-    
-    var body: some View {
-        VStack{
+    struct FavouriteComicView: View {
+        let comic: Comic
+        @EnvironmentObject var vm: ViewModel
+        @State var isFavourite = false
+        
+        var body: some View {
             VStack{
-                Text(comic.title)
-                Text("#" + String(comic.num))
-            }
-            Rectangle()
-                .stroke()
-                .frame(width: 400, height: 200)
-                .overlay{
-                    VStack{
-                        HStack(alignment: .center){
-                         Spacer()
-                            Button(action: {
-                                let itemsToShare : [Any] = [comic.title, comic.url]
-                                vm.share(itemsToShare)
-                            }, label: {
+                VStack{
+                    Text(comic.title)
+                    Text("#" + String(comic.num))
+                }
+                Rectangle()
+                    .stroke()
+                    .frame(width: 400, height: 200)
+                    .overlay{
+                        VStack{
+                            HStack(alignment: .center){
+                            
                                 Image(systemName: "square.and.arrow.up")
                                     .resizable()
                                     .frame(width: 40, height: 40)
                                     .foregroundColor(.black)
-                                    .padding()
-                            })
-                            AsyncImage(url: comic.url) { image in
-                                image
-                                    .resizable()
-                                    .frame(width: 150, height: 150)
-                                  
+                                    .padding(.horizontal, 50)
+                                    .onTapGesture {
+                                        let itemsToShare : [Any] = [comic.title, comic.url]
+                                        vm.share(itemsToShare)
+                                    }
+                                AsyncImage(url: comic.url) { image in
+                                    image
+                                        .resizable()
+                                        .frame(width: 150, height: 150)
+                                      
+                                    
+                                } placeholder: {
+                                    ProgressView()
+                                    Text("Loading comic...")
+                                        .font(.system(.headline))
+                                }
                                 
-                            } placeholder: {
-                                ProgressView()
-                                Text("Loading comic...")
-                                    .font(.system(.headline))
-                            }
-                            
-                            
-                            Button(action: {isFavourite.toggle()}, label: {
+                                
                                 HStack{
                                     Image(systemName: isFavourite ? "heart.fill" : "heart")
                                         .resizable()
                                         .frame(width: 40, height: 40)
-                                        .padding()
+                                        .padding(.horizontal, 50)
                                         .foregroundColor(isFavourite ? .red : .black)
                                     
-                                }})
-                            Spacer()
-                            
+                                }.onTapGesture {
+                                    isFavourite.toggle()
+                                    vm.favOrRemove(comic: comic)
+                                }
+                               
+                                
+                            }
+                           
                         }
-                       
                     }
-                }
-                .onReceive(vm.$currentComic) { comic in
-                    isFavourite = comic?.liked ?? false
-                }
-            
+                    .onReceive(vm.$favouriteComics) { favouriteComics in
+                        isFavourite = favouriteComics.contains { $0.num == comic.num }
+                    }
+                
+            }
         }
     }
-}
+
 
 struct FavouriteComicView_Previews: PreviewProvider {
     static var previews: some View {

@@ -39,7 +39,7 @@ struct xkcd_x_DimitrijeApp: App {
                     .tag(1)
                     
                     NavigationView {
-                        HomeView()
+                        FavouritesView()
                     }
                     .tabItem {
                         Label("Favourites", systemImage: "heart")

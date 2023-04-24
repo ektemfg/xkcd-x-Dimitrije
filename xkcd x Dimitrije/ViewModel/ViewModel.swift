@@ -12,11 +12,7 @@ class ViewModel: ObservableObject {
     @Published var currentComic: Comic?
     @Published var requestedComic: Comic?
     @Published var randomComic: Comic?
-    @Published var favouriteComics: [Comic] = [] {
-        didSet {
-            saveFavourites()
-        }
-    }
+    @Published var favouriteComics: [Comic] = []
     
     
     static let shared = ViewModel()
@@ -73,18 +69,25 @@ class ViewModel: ObservableObject {
     
     // UserDefaults & Favourite Functions
     
-    func favCurrent() {
-        guard self.currentComic != nil else {
-            Logger.log("Can't add nil to favs", reason: .error)
+    func favOrRemove(comic: Comic?) {
+        let targetComic = comic ?? self.currentComic
+        guard targetComic != nil else {
+            Logger.log("Can't add/remove nil to/from favs", reason: .error)
             return
         }
-        guard self.currentComic?.liked == false else {self.favouriteComics.removeAll(where: {$0.num == self.currentComic?.num})
-            Logger.log("Removed \(self.currentComic?.title ?? "something") from favs")
-            return
+        
+        if let index = favouriteComics.firstIndex(where: { $0.num == targetComic?.num }) {
+            favouriteComics.remove(at: index)
+            Logger.log("Removed \(targetComic?.title ?? "something") from favs")
+            saveFavourites()
+        } else {
+            favouriteComics.append(targetComic!)
+            Logger.log("Added \(targetComic?.title ?? "something") to favs")
+            saveFavourites()
         }
-        self.favouriteComics.append(self.currentComic!)
-        Logger.log("Added \(self.currentComic?.title ?? "something") to favs")
     }
+
+
     
     func saveFavourites() {
         let data = try? JSONEncoder().encode(favouriteComics)
