@@ -47,7 +47,7 @@ struct HomeView: View {
                 Spacer()
                 Button(action: {
                     let titleToShare = vm.currentComic?.title
-                    let linkToShare = vm.currentComic?.url
+                    let linkToShare = vm.currentComic?.link
                     guard (titleToShare != nil), linkToShare != nil else {
                         Logger.log("Could not create share sheet.", reason: .warning)
                         return

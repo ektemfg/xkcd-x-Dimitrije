@@ -112,5 +112,12 @@ class ViewModel: ObservableObject {
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
     
+    func todayDateText() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let timestamp = dateFormatter.string(from: Date())
+        return timestamp
+    }
+    
     
 }

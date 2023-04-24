@@ -23,6 +23,9 @@ struct Comic: Codable {
         return ViewModel.shared.favouriteComics.contains(where: { $0.num == self.num })
     }
     
+    var dateText: String? {
+        return day + month + year
+    }
     
     enum CodingKeys: String, CodingKey {
         case month, num, link, year, news
