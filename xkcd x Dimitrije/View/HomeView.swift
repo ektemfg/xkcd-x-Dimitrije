@@ -12,6 +12,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var vm: ViewModel
     @State var isFavourite = false
+    @State private var offset = CGSize.zero
     
     var body: some View {
         VStack {
@@ -75,6 +76,42 @@ struct HomeView: View {
             
             .padding(.bottom, 10)
         }
+        .offset(offset)
+                    .animation(.easeInOut(duration: 0.3))
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                let offsetWidth = offset.width + gesture.translation.width
+                                if offsetWidth >= -UIScreen.main.bounds.width && offsetWidth <= UIScreen.main.bounds.width {
+                                    self.offset = gesture.translation
+                                }
+                            }
+                            .onEnded { gesture in
+                                let offsetWidth = offset.width + gesture.translation.width
+                                if offsetWidth < -50 {
+                                    withAnimation {
+                                        self.offset = CGSize(width: -UIScreen.main.bounds.width, height: 0)
+                                    }
+                                    vm.getSpecific(number: vm.currentComic!.num + 1)
+                                    withAnimation {
+                                        self.offset = .zero
+                                    }
+                                } else if offsetWidth > 50 {
+                                    withAnimation {
+                                        self.offset = CGSize(width: UIScreen.main.bounds.width, height: 0)
+                                    }
+                                    vm.getSpecific(number: vm.currentComic!.num - 1)
+                                    withAnimation {
+                                        self.offset = .zero
+                                    }
+                                } else {
+                                    withAnimation {
+                                        self.offset = .zero
+                                    }
+                                
+                                }
+                            }
+                        )
         
         
         .navigationBarItems(leading:
