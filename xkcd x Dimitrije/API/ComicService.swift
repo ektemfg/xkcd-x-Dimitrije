@@ -14,6 +14,8 @@ class ComicService {
         self.api = api
     }
     
+    static let shared = ComicService(api: API.shared)
+    
     func getCurrentComic() async throws -> Comic {
         try await api.comicFetcher("current", number: nil)
     }
