@@ -19,7 +19,9 @@ struct ComicDetailView: View {
                         image
                             .resizable()
                             .frame(width: screen.size.width * 0.90, height: screen.size.height * 0.75)
-                        
+                            .aspectRatio(contentMode: .fit)
+                            .accessibility(hidden: false)
+                            .accessibility(label: Text(comic.transcript))
                         
                     } placeholder: {
                         ProgressView()
