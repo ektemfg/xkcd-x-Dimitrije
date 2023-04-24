@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ViewModel: ObservableObject {
     @Published var currentComic: Comic?
@@ -18,6 +19,9 @@ class ViewModel: ObservableObject {
     init() {
         self.getCurrent()
     }
+    
+    // Comic Service Functions
+    
     func getCurrent() {
         Task {
             do {
@@ -58,6 +62,13 @@ class ViewModel: ObservableObject {
                 Logger.log("Could not fetch random comic.", reason: .error)
             }
         }
+    }
+    
+    // Other Functions
+    
+    func share(_ items: [Any]) {
+        let av = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
     
 }
