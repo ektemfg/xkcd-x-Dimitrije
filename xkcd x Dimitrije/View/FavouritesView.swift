@@ -39,7 +39,6 @@ struct FavouritesView: View {
           
                 List(vm.favouriteComics, id: \.num) { comic in
                     VStack{
-                        Divider()
                         FavouriteComicView(comic: comic)
                     }
                 }

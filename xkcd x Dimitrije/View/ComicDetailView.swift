@@ -28,15 +28,6 @@ struct ComicDetailView: View {
                     }
                  
                     VStack(spacing: 8){
-                        Button(action: {
-                            let itemsToShare : [Any] = [comic.title, comic.url!]
-                            vm.share(itemsToShare)
-                        }, label: {
-                            Image(systemName: "square.and.arrow.up")
-                                .resizable()
-                                .frame(width: 30, height: 35)
-                                .foregroundColor(.black)
-                        })
                         Text("Comic Date:")
                             .font(.system(.title2))
                         Text("Somewhere between 05/09/2005 and \(vm.todayDateText())")
@@ -48,21 +39,38 @@ struct ComicDetailView: View {
                             .font(.system(.title3))
                         Text("Link:")
                             .font(.system(.title2))
-                        Text("TAP ON ME")
-                            .font(.system(.title3))
-                            .onTapGesture {
-                            Logger.log("Opening comic in browser", reason: .info)
-                                openURL(comic.url!)
+                        HStack{
+                            Text("TAP ON ME")
+                                .font(.system(.title3))
+                                .foregroundColor(.blue)
+                                .onTapGesture {
+                                    Logger.log("Opening comic in browser", reason: .info)
+                                    openURL(comic.url!)
+                                }
                         }
+                        Text("Share with friends")
+                        HStack{
+                           Button(action: {
+                               let itemsToShare : [Any] = [comic.title, comic.url!]
+                               vm.share(itemsToShare)
+                           }, label: {
+                               Image(systemName: "square.and.arrow.up")
+                                   .resizable()
+                                   .frame(width: 30, height: 35)
+                                   .foregroundColor(.blue)
+                           })
+                       }
                        
                     }
                  
                 }
                 .padding()
+                
             }
             .scrollIndicators(.hidden)
             
         }
+        
     }
     
 }

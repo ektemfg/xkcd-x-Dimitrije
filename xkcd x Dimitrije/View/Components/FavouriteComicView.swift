@@ -21,8 +21,8 @@ import SwiftUI
                     Text(comic.title)
                     Text("#" + String(comic.num))
                 }
-                Rectangle()
-                    .stroke()
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 1)
                     .frame(width: 400, height: 200)
                     .overlay{
                         VStack{

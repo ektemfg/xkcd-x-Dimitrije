@@ -44,7 +44,7 @@ class ViewModel: ObservableObject {
             do {
                 let comic = try await comicService.getSpecificComic(number: number)
                 DispatchQueue.main.async {
-                    self.requestedComic = comic
+                    self.currentComic = comic
                 }
             }
             catch {

@@ -30,6 +30,8 @@ struct HomeView: View {
                 }
                 Spacer()
             }
+            VStack{
+                Divider()
             HStack{
                 Spacer()
                 Button(action: {
@@ -37,10 +39,13 @@ struct HomeView: View {
                     isFavourite = vm.favouriteComics.contains { $0.num == vm.currentComic?.num }
                 }, label: {
                     HStack{
-                        Image(systemName: vm.currentComic?.liked ?? false ? "heart.fill" : "heart")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(isFavourite ? .red : .black)
+                        VStack{
+                            Image(systemName: vm.currentComic?.liked ?? false ? "heart.fill" : "heart")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(isFavourite ? .red : .black)
+                            Text("Like")
+                        }
                         
                     }
                 })
@@ -55,25 +60,40 @@ struct HomeView: View {
                     let itemsToShare : [Any] = [titleToShare!, linkToShare!]
                     vm.share(itemsToShare)
                 }, label: {
-                    Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.black)
+                    VStack{
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(.black)
+                        Text("Share")
+                    }
                 })
                 Spacer()
                 
             }
+        }
+            
             .padding(.bottom, 20)
         }
         
         
-        .navigationBarItems(leading: Text("Comic Number: \(vm.currentComic?.num ?? 0)")
-            .font(.system(.headline))
-                            , trailing: HStack{
-            Text("Next")
+        .navigationBarItems(leading:
+                                HStack(alignment: .center, spacing:20){
+            Image(systemName: "arrow.backward")
+            Text("Previous")
                 .font(.system(.headline))
                 .foregroundColor(.black)
-            Image(systemName: "arrow.forward")
+            Text("Comic #\(vm.currentComic?.num ?? 0)")
+                .font(.system(.headline))
+        }
+            .onTapGesture {
+                vm.getSpecific(number: vm.currentComic!.num - 1)
+            }
+                            , trailing: HStack{
+            Text("Random")
+                .font(.system(.headline))
+                .foregroundColor(.black)
+            Image(systemName: "arrow.counterclockwise")
         }.onTapGesture {
             vm.getRandom()
         }
