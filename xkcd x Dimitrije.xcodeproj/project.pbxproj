@@ -24,6 +24,7 @@
 		170D3F2929F5E85B006CE5BB /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2829F5E85B006CE5BB /* Color+Extensions.swift */; };
 		170D3F2B29F5E876006CE5BB /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2A29F5E876006CE5BB /* NetworkStatus.swift */; };
 		170D3F2D29F60096006CE5BB /* ComicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2C29F60096006CE5BB /* ComicService.swift */; };
+		170D3F3229F6311F006CE5BB /* FavouriteComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		170D3F2829F5E85B006CE5BB /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		170D3F2A29F5E876006CE5BB /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		170D3F2C29F60096006CE5BB /* ComicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicService.swift; sourceTree = "<group>"; };
+		170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteComicView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		170D3F1629F5E6C9006CE5BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				170D3F2E29F630EC006CE5BB /* Components */,
 				170D3F1C29F5E7DC006CE5BB /* HomeView.swift */,
 			);
 			path = View;
@@ -197,6 +200,14 @@
 				170D3F2A29F5E876006CE5BB /* NetworkStatus.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		170D3F2E29F630EC006CE5BB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				170D3F1F29F5E7F5006CE5BB /* ViewModel.swift in Sources */,
+				170D3F3229F6311F006CE5BB /* FavouriteComicView.swift in Sources */,
 				170D3F2D29F60096006CE5BB /* ComicService.swift in Sources */,
 				170D3EED29F5E66F006CE5BB /* ContentView.swift in Sources */,
 				170D3F1D29F5E7DC006CE5BB /* HomeView.swift in Sources */,
