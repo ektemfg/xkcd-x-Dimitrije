@@ -86,8 +86,8 @@ class ViewModel: ObservableObject {
             saveFavourites()
         }
     }
-
-
+    
+    
     
     func saveFavourites() {
         let data = try? JSONEncoder().encode(favouriteComics)
@@ -102,7 +102,7 @@ class ViewModel: ObservableObject {
         } else {
             Logger.log("No Favourites Found in UserDefaults", reason: .warning)
         }
-
+        
     }
     
     // Other Functions

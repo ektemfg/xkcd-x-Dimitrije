@@ -58,4 +58,4 @@ struct xkcd_x_DimitrijeApp: App {
             }
         }
     }
-        }
+}

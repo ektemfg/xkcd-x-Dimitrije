@@ -36,15 +36,15 @@ struct FavouritesView: View {
             )
             .navigationBarTitleDisplayMode(.inline)
         } else {
-          
-                List(vm.favouriteComics, id: \.num) { comic in
-                    VStack{
-                        FavouriteComicView(comic: comic)
-                    }
+            
+            List(vm.favouriteComics, id: \.num) { comic in
+                VStack{
+                    FavouriteComicView(comic: comic)
                 }
-                .listRowSeparator(.hidden)
-                .listStyle(.plain)
-             .navigationTitle(
+            }
+            .listRowSeparator(.hidden)
+            .listStyle(.plain)
+            .navigationTitle(
                 Text("Your Favourites")
             )
             .navigationBarTitleDisplayMode(.inline)
