@@ -26,7 +26,17 @@ struct ComicDetailView: View {
                         Text("Loading comic...")
                             .font(.system(.headline))
                     }
+                 
                     VStack(spacing: 8){
+                        Button(action: {
+                            let itemsToShare : [Any] = [comic.title, comic.url!]
+                            vm.share(itemsToShare)
+                        }, label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .resizable()
+                                .frame(width: 30, height: 35)
+                                .foregroundColor(.black)
+                        })
                         Text("Comic Date:")
                             .font(.system(.title2))
                         Text("Somewhere between 05/09/2005 and \(vm.todayDateText())")
@@ -42,8 +52,9 @@ struct ComicDetailView: View {
                             .font(.system(.title3))
                             .onTapGesture {
                             Logger.log("Opening comic in browser", reason: .info)
-                            openURL(URL(string: comic.link)!)
+                                openURL(comic.url!)
                         }
+                       
                     }
                  
                 }

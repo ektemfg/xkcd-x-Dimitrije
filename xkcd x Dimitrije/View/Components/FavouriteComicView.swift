@@ -13,6 +13,9 @@ import SwiftUI
         @State var isFavourite = false
         
         var body: some View {
+            NavigationLink("",
+                           destination: ComicDetailView(comic: comic)).opacity(0)
+            .buttonStyle(PlainButtonStyle())
             VStack{
                 VStack{
                     Text(comic.title)
