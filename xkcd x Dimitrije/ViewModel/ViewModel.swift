@@ -12,8 +12,12 @@ class ViewModel: ObservableObject {
     @Published var requestedComic: Comic?
     @Published var randomComic: Comic?
     
+    static let shared = ViewModel()
     private let comicService =  ComicService.shared
     
+    init() {
+        self.getCurrent()
+    }
     func getCurrent() {
         Task {
             do {
@@ -47,7 +51,7 @@ class ViewModel: ObservableObject {
             do {
                 let comic = try await comicService.getRandomComic()
                 DispatchQueue.main.async {
-                    self.randomComic = comic
+                    self.currentComic = comic
                 }
             }
             catch {

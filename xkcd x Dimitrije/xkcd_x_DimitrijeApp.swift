@@ -10,6 +10,7 @@ import UIKit
 
 @main
 struct xkcd_x_DimitrijeApp: App {
+    @StateObject private var vm = ViewModel.shared
     @State private var selectedTab = 1
     init() {
         UITabBar.appearance().shadowImage = UIImage()
@@ -33,7 +34,7 @@ struct xkcd_x_DimitrijeApp: App {
                         HomeView()
                     }
                     .tabItem {
-                        Image(systemName: "arrow.triangle.2.circlepath")
+                        Label("Comics", systemImage: "face.smiling")
                     }
                     .tag(1)
                     
@@ -41,10 +42,11 @@ struct xkcd_x_DimitrijeApp: App {
                         HomeView()
                     }
                     .tabItem {
-                        Label("Favourites", systemImage: selectedTab == 2 ? "heart.fill" : "heart")
+                        Label("Favourites", systemImage: "heart")
                     }
                     .tag(2)
                 }
+                .environmentObject(vm)
                 .edgesIgnoringSafeArea(.bottom)
                 
                 Divider()
