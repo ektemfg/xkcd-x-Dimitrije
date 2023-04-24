@@ -23,6 +23,7 @@
 		170D3F2729F5E842006CE5BB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2629F5E842006CE5BB /* Logger.swift */; };
 		170D3F2929F5E85B006CE5BB /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2829F5E85B006CE5BB /* Color+Extensions.swift */; };
 		170D3F2B29F5E876006CE5BB /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2A29F5E876006CE5BB /* NetworkStatus.swift */; };
+		170D3F2D29F60096006CE5BB /* ComicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F2C29F60096006CE5BB /* ComicService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		170D3F2629F5E842006CE5BB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		170D3F2829F5E85B006CE5BB /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		170D3F2A29F5E876006CE5BB /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		170D3F2C29F60096006CE5BB /* ComicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				170D3F2029F5E80A006CE5BB /* API.swift */,
 				170D3F2229F5E820006CE5BB /* APIError.swift */,
 				170D3F2429F5E830006CE5BB /* APIEndpoints.swift */,
+				170D3F2C29F60096006CE5BB /* ComicService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				170D3F1F29F5E7F5006CE5BB /* ViewModel.swift in Sources */,
+				170D3F2D29F60096006CE5BB /* ComicService.swift in Sources */,
 				170D3EED29F5E66F006CE5BB /* ContentView.swift in Sources */,
 				170D3F1D29F5E7DC006CE5BB /* HomeView.swift in Sources */,
 				170D3F2529F5E830006CE5BB /* APIEndpoints.swift in Sources */,

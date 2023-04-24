@@ -27,7 +27,7 @@ class API {
                     return nil}
                 return endpoints.comic(number!).url
             case "random":
-                return endpoints.comic(Int.random(in: 0...1000)).url
+                return endpoints.comic(Int.random(in: 1...2764)).url
             default:
                 Logger.log("Unknown action, can't create comic URL.", reason: .error)
                 return nil
