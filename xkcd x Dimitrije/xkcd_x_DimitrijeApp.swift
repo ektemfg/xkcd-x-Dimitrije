@@ -23,7 +23,7 @@ struct xkcd_x_DimitrijeApp: App {
             ZStack(alignment: .bottom) {
                 TabView(selection: $selectedTab) {
                     NavigationView {
-                        HomeView()
+                        SearchView()
                     }
                     .tabItem {
                         Label("Search", systemImage: "magnifyingglass")

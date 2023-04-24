@@ -27,6 +27,8 @@
 		170D3F3229F6311F006CE5BB /* FavouriteComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */; };
 		170D3F3429F63A9D006CE5BB /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3329F63A9D006CE5BB /* FavouritesView.swift */; };
 		170D3F3629F660CC006CE5BB /* ComicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3529F660CC006CE5BB /* ComicDetailView.swift */; };
+		170D3F3829F67D76006CE5BB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3729F67D76006CE5BB /* WebView.swift */; };
+		170D3F3A29F67FFF006CE5BB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D3F3929F67FFF006CE5BB /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteComicView.swift; sourceTree = "<group>"; };
 		170D3F3329F63A9D006CE5BB /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		170D3F3529F660CC006CE5BB /* ComicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailView.swift; sourceTree = "<group>"; };
+		170D3F3729F67D76006CE5BB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		170D3F3929F67FFF006CE5BB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 				170D3F1C29F5E7DC006CE5BB /* HomeView.swift */,
 				170D3F3329F63A9D006CE5BB /* FavouritesView.swift */,
 				170D3F3529F660CC006CE5BB /* ComicDetailView.swift */,
+				170D3F3929F67FFF006CE5BB /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 		170D3F2E29F630EC006CE5BB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				170D3F3729F67D76006CE5BB /* WebView.swift */,
 				170D3F3129F6311F006CE5BB /* FavouriteComicView.swift */,
 			);
 			path = Components;
@@ -352,12 +358,14 @@
 				170D3EED29F5E66F006CE5BB /* ContentView.swift in Sources */,
 				170D3F1D29F5E7DC006CE5BB /* HomeView.swift in Sources */,
 				170D3F2529F5E830006CE5BB /* APIEndpoints.swift in Sources */,
+				170D3F3A29F67FFF006CE5BB /* SearchView.swift in Sources */,
 				170D3F2B29F5E876006CE5BB /* NetworkStatus.swift in Sources */,
 				170D3F2729F5E842006CE5BB /* Logger.swift in Sources */,
 				170D3F1B29F5E79A006CE5BB /* Comic.swift in Sources */,
 				170D3F2129F5E80A006CE5BB /* API.swift in Sources */,
 				170D3EEB29F5E66F006CE5BB /* xkcd_x_DimitrijeApp.swift in Sources */,
 				170D3F2329F5E820006CE5BB /* APIError.swift in Sources */,
+				170D3F3829F67D76006CE5BB /* WebView.swift in Sources */,
 				170D3F3429F63A9D006CE5BB /* FavouritesView.swift in Sources */,
 				170D3F2929F5E85B006CE5BB /* Color+Extensions.swift in Sources */,
 				170D3F3629F660CC006CE5BB /* ComicDetailView.swift in Sources */,
