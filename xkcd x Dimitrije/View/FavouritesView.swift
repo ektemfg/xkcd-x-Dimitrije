@@ -22,11 +22,11 @@ struct FavouritesView: View {
                     .resizable()
                     .frame(width: 250, height: 250)
                 HStack(spacing:0){
-                    Text("Click")
+                    Text("Click ")
                         .font(.system(.title2))
                     Image(systemName: "heart.fill")
                         .foregroundColor(.red)
-                    Text("on a comic!")
+                    Text(" when its funny!")
                         .font(.system(.title2))
                 }
                 Spacer()

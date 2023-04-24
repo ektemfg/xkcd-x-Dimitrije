@@ -24,7 +24,7 @@ struct Comic: Codable {
     }
     
     var dateText: String? {
-        return day + month + year
+        return "\(day)/" + "\(month)/" + "\(year)"
     }
     
     enum CodingKeys: String, CodingKey {

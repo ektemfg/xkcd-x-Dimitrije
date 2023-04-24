@@ -14,6 +14,7 @@ class NetworkStatus: ObservableObject {
     private let workerQueue = DispatchQueue(label: "Monitor")
     var isOnline = false
     
+    static let shared = NetworkStatus()
     init() {
         networkMonitor.pathUpdateHandler = { path in
             self.isOnline = path.status == .satisfied

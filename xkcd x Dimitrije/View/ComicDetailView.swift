@@ -32,8 +32,12 @@ struct ComicDetailView: View {
                     VStack(spacing: 8){
                         Text("Comic Date:")
                             .font(.system(.title2))
-                        Text("Somewhere between 05/09/2005 and \(vm.todayDateText())")
-                            .font(.system(.title3))
+                        if let dateText = comic.dateText {
+                            Text("Published at \(dateText)")
+                        } else {
+                            Text("Somewhere between 01/01/2006 and \(vm.todayDateText())")
+                                .font(.system(.title3))
+                        }
                         Text("Comic Description:")
                             .font(.system(.title2))
                             .lineLimit(10)
