@@ -42,7 +42,7 @@ struct HomeView: View {
                         VStack{
                             Image(systemName: vm.currentComic?.liked ?? false ? "heart.fill" : "heart")
                                 .resizable()
-                                .frame(width: 30, height: 30)
+                                .frame(width: 25, height: 25)
                                 .foregroundColor(isFavourite ? .red : .black)
                             Text("Like")
                         }
@@ -63,7 +63,7 @@ struct HomeView: View {
                     VStack{
                         Image(systemName: "square.and.arrow.up")
                             .resizable()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 25, height: 25)
                             .foregroundColor(.black)
                         Text("Share")
                     }
@@ -73,7 +73,7 @@ struct HomeView: View {
             }
         }
             
-            .padding(.bottom, 20)
+            .padding(.bottom, 10)
         }
         
         
