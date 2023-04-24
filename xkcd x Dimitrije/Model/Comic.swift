@@ -19,6 +19,11 @@ struct Comic: Codable {
         return URL(string: self.img)
     }
     
+    var liked: Bool {
+        return ViewModel.shared.favouriteComics.contains(where: { $0.num == self.num })
+    }
+    
+    
     enum CodingKeys: String, CodingKey {
         case month, num, link, year, news
         case safeTitle = "safe_title"
